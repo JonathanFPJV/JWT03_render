@@ -1,3 +1,5 @@
+import dotenv from 'dotenv';
+dotenv.config();
 // Importa Express para crear la aplicación web
 import express from "express";
 
