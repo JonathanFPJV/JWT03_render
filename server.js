@@ -32,7 +32,8 @@ const app = express();
 
 // Configura las opciones de CORS para permitir acceso desde el frontend
 const corsOptions = {
-    origin: "http://localhost:3000"
+    origin: true, // permite cualquier origen dinámicamente
+    credentials: true 
 };
 
 // Aplica el middleware de CORS a la aplicación

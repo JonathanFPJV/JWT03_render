@@ -1,15 +1,18 @@
 // app/config/db.config.js
+import dotenv from "dotenv";
+dotenv.config();
+
 export default {
-    HOST: "localhost",
-    USER: "postgres",
-    PASSWORD: "admin",
-    DB: "db",
-    PORT: 5432,
-    dialect: "postgres",
-    pool: {
-        max: 5,
-        min: 0,
-        acquire: 30000,
-        idle: 10000
-    }
+  HOST: process.env.DB_HOST,
+  USER: process.env.DB_USER,
+  PASSWORD: process.env.DB_PASSWORD,
+  DB: process.env.DB_NAME,
+  PORT: process.env.DB_PORT,
+  dialect: process.env.DB_DIALECT || "postgres",
+  pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000,
+  },
 };
