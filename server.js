@@ -17,17 +17,7 @@ import userRoutes from "./app/routes/user.routes.js";
 
 import { initialRoles } from "./app/config/init.roles.js";
 
-// Después de db.sequelize.sync()
-db.sequelize.sync({ force: false }).then(() => {
-  console.log("Database synchronized");
 
-  // Inserta roles si no existen
-  initialRoles(db.role);
-
-  app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}.`);
-  });
-});
 
 // Crea una instancia de la aplicación Express
 const app = express();
@@ -64,8 +54,10 @@ const PORT = process.env.PORT || 3000;
 // Sincroniza los modelos con la base de datos
 db.sequelize.sync({ force: false }).then(() => {
     console.log("Database synchronized");
-    
+    // Inserta roles si no existen
+    initialRoles(db.role);
     app.listen(PORT, () => {
         console.log(`Server is running on port ${PORT}.`);
     });
 });
+
